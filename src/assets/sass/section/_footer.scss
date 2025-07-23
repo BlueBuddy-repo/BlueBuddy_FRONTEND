@@ -1,0 +1,21 @@
+.footer_wrap {
+    height: 7.5rem;
+    position: sticky;
+    bottom: 0;
+    width: inherit;
+
+    .btns {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+
+        img {
+            height: 3.2rem;
+            display: flex;
+        }
+
+    }
+
+
+}
