@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+// setting
+@use "setting/resets";
+@use "setting/common";
+@use "setting/vars";
+
+//section
+@use "section/footer";
+@use "section/header";

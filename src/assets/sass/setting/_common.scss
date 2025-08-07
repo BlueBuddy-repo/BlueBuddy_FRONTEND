@@ -1,0 +1,15 @@
+:root{
+    background-color: var(--white);
+    font-size: 62.5% !important; // rem 사용을 위한 설정
+}
+body{
+    width: 393px;
+    margin: 0 auto;
+    background: var(--darkblack);
+    color: var(--white);
+    position: relative;
+
+}
+.contents{
+    min-height: 100vh;
+}
