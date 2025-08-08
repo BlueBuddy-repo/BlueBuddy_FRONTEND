@@ -35,8 +35,6 @@ const CreatureBook  = () => {
 
   return (
     <div className='creatureBook_wrap contents'>
-      <h2 className='title'>생물도감</h2>
-
       <div className='creature-grid'>{cards}</div>
     </div>
   )

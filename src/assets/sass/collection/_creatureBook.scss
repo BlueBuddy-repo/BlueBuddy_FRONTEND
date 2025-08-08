@@ -1,5 +1,6 @@
 .creatureBook_wrap {
   margin-bottom: 7.4rem;
+  margin-top: 5rem;
   
     .creature-grid {
         display: grid;
@@ -25,17 +26,5 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-    }
-
-    .title {
-        text-align: center;
-        font-weight: bold;
-        font-size: 2rem;
-        margin: 1.6rem 0;
-        text-decoration: underline;
-        text-decoration-color: white;
-        text-decoration-thickness: 0.2rem;
-        text-underline-offset: 0.3rem;
-        margin-bottom: 5rem;
     }
 }

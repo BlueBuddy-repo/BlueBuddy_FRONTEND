@@ -12,8 +12,6 @@ const PostcardBook = () => {
   
    return (
     <div className='postcardBook_wrap contents'>
-      <h2 className='title'>엽서</h2>
-
       <div className='postcard-list'>
         {postcards.map((postcard) => (
           <div key={postcard.id} className='postcard'>

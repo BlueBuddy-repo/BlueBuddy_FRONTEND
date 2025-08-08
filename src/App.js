@@ -4,9 +4,7 @@ import Header from './components/Section/Header'
 import Footer from './components/Section/Footer'
 import Home from './components/Home/Home'
 import CollectionPage from './components/Collection/CollectionPage'
-import CreatureBook from './components/Collection/CreatureBook'
-
-// import CreatureDetail from './components/Collection/CreatureDetailImage'
+import CreatureDetail from './components/Collection/CreatureDetail'
 
 const App = () => {
   return (
@@ -15,6 +13,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/my-collection" element={<CollectionPage />} />
+        <Route path="/my-collection/creatureDetail" element={<CreatureDetail />} />
       </Routes>
       <Footer />
     </Router>
