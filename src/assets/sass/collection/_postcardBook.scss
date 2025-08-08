@@ -1,0 +1,32 @@
+.postcardBook_wrap {
+    padding: 0 3rem;
+    margin: 0 auto;
+
+    .title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 2rem;
+        margin: 1.6rem 0;
+        text-decoration: underline;
+        text-decoration-color: white;
+        text-decoration-thickness: 0.2rem;
+        text-underline-offset: 0.3rem;
+        margin-bottom: 3.1rem;
+    }
+
+    .postcard {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 4.2rem;
+    }
+    
+    .postcard img {
+        width: 100%;
+        object-fit: contain;
+        overflow: hidden;
+        border-radius: 0.5rem;
+    }
+}
