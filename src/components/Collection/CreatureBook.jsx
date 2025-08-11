@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import cardImage from '../../assets/img/card.png';
-import "../../assets/sass/collection/_creatureBook.scss"
+import "../../assets/sass/section/collection/_creatureBook.scss"
 
 const CreatureBook  = () => {
 

@@ -5,7 +5,7 @@ import backgroundImage from '../../assets/img/starField.png';
 import badgeLv1 from '../../assets/img/badgeLv1.png';
 import badgeLv2 from '../../assets/img/badgeLv2.png';
 import badgeLv3 from '../../assets/img/badgeLv3.png';
-import "../../assets/sass/collection/_creatureDetail.scss"
+import "../../assets/sass/section/collection/_creatureDetail.scss"
 
 const CreatureDetail = () => {
     const { id } = useParams();

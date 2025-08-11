@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "../../assets/sass/collection/_postcardBook.scss"
+import "../../assets/sass/section/collection/_postcardBook.scss"
 
 const PostcardBook = () => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import CreatureBook from './CreatureBook';
 import PostcardBook from './PostcardBook';
-import "../../assets/sass/collection/_collectionTitle.scss"
+import "../../assets/sass/section/collection/_collectionTitle.scss"
 
 const CollectionPage = () => {
   return (
