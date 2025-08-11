@@ -1,0 +1,48 @@
+.map_wrap {
+    background-color: var(--gray100);
+
+    .map_btn {
+        z-index: 10;
+        position: absolute;
+        bottom: 1.8rem;
+        right: 1.8rem;
+        background-color: var(--black);
+        width: 5.5rem;
+        height: 5.5rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+    }
+
+    .map_container {
+        height: 100%;
+        width: 100%;
+    }
+
+    .map_list {
+        z-index: 10;
+        position: absolute;
+        bottom: 8rem;
+        right: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: end;
+        gap: 1rem;
+        div{
+            width: fit-content;
+            height: 3rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+            border-radius: 1rem;
+            padding: 0 1rem ;
+            background-color: var(--white);
+            color: var(--gray300);
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+    }
+}
