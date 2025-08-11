@@ -1,0 +1,85 @@
+.myinfo_wrap {
+    padding: 1.6rem 2rem;
+
+    .myinfo_header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2.4rem;
+
+        .back-btn {
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        cursor: pointer;
+        padding: 0;
+        }
+
+        .title {
+        font-size: 1.6rem;
+        }
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        .field {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        label {
+            flex: 0 0 auto;
+            width: 10rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        input {
+            flex: 1;
+            padding: 1rem 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.8rem;
+            background: #fff;
+            color: #000;
+
+            &:focus {
+            outline: none;
+            }
+        }
+        }
+
+        .error {
+        color: #ff5555;
+        font-size: 1.3rem;
+        margin-top: -0.8rem;
+        }
+
+        .submit-btn {
+        margin: 2.4rem auto 0;
+        padding: 1.2rem;
+        width: 20rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        background: #fff;
+        color: #000;
+        border: none;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+
+            &:hover {
+                background-color: #f0f0f0;
+            }
+            &:active {
+                transform: scale(0.99);
+            }
+        }
+    }
+}
