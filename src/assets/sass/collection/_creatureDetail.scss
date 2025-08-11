@@ -41,7 +41,7 @@
             bottom: 4rem;
             left: 50%;
             transform: translate(-50%);
-            font-size: 3rem;
+            font-size: 3.2rem;
             z-index: 4;
             color: white;
         }
@@ -52,13 +52,14 @@
         font-size: 1.2rem;
         margin-left: 4.5rem;
         margin-right: 4.4rem;
+        padding-bottom: 5.4rem;
 
         .upper-box {
             display: flex;
             align-items: flex-start;
 
             .name-kr {
-                font-size: 2.5rem;
+                font-size: 2.4rem;
                 white-space: nowrap;
             }
 
@@ -91,8 +92,11 @@
         }
 
         .description {
+            font-size: 1.2rem;
             margin-top: 3rem;
             white-space: pre-line; 
+            line-height: 1.2;
+            font-weight: 300;
         }
     }
 }
