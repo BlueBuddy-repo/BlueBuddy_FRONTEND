@@ -1,0 +1,61 @@
+.mypage_wrap {
+    padding: 1.6rem 2rem;
+
+    .title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 1.2rem 0 0.8rem;
+    }
+
+    .username {
+        font-size: 1.4rem;
+        opacity: 0.8;
+        margin-bottom: 1.6rem;
+    }
+
+    .menu {
+        display: grid;
+        gap: 0.8rem;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: inherit;
+        background: #1f1f1f;
+        border-radius: 1.2rem;
+        padding: 1.4rem 1.6rem;
+        transition: transform 0.05s ease, background-color 0.15s ease;
+
+        &:hover {
+            background: #262626;
+        }
+        &:active {
+            transform: scale(0.99);
+        }   
+        &__left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        &__icon {
+            width: 2.2rem;
+            height: 2.2rem;
+            display: block;
+        }
+
+        &__label {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        &__chevron {
+            width: 1.8rem;
+            height: 1.8rem;
+            opacity: 0.9;
+        }
+    }
+}
