@@ -7,7 +7,6 @@ const PostcardBook = () => {
     const [postcards, setPostcards] = useState([]);
     const [error, setError] = useState(null);
   
-    const token = '';
 
     useEffect(() => {
         axios.get('user-postcards/me', {
@@ -29,7 +28,7 @@ const PostcardBook = () => {
         });
     }, [token]);
 
-  if (error) return <div>{error}</div>;
+  if (error) return null;
 
     return (
         <div className='postcardBook_wrap contents'>
