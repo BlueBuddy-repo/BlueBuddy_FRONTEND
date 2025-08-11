@@ -1,17 +1,23 @@
 .footer_wrap {
-    height: 7.5rem;
+
     position: sticky;
     bottom: 0;
     width: inherit;
+    background: var(--black);
 
     .btns {
         display: flex;
+        height: 7.5rem;
         justify-content: space-around;
         align-items: center;
 
+        a {
+            display: flex;
+        }
 
         img {
             height: 3.2rem;
+            width: 3.2rem;
             display: flex;
         }
 
