@@ -1,0 +1,182 @@
+.zwu_wrap {
+    padding: 1.6rem 2rem;
+
+    .title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.6rem;
+    }
+
+    .zwu_form {
+        display: grid;
+        gap: 1.6rem;
+        max-width: 42rem;
+    }
+
+    .field {
+        display: grid;
+        gap: 0.8rem;
+        position: relative;
+    }
+
+    .label {
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    .select {
+        width: 100%;
+        display: block;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        background: var(--white);
+        color: var(--darkblack);
+        border: none;
+        border-radius: 0.5rem;
+        padding: 1rem 3.2rem 1rem 1.6rem;
+        font-size: 1.4rem;
+        line-height: 1;
+        outline: none;
+        box-shadow: none;
+
+        &:focus { outline: none; }
+    }
+
+    .select_arrow {
+        position: absolute;
+        right: 1.2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 1.4rem 0;
+        width: 1.2rem;
+        height: 1.2rem;
+        pointer-events: none;
+        opacity: 0.9;
+    }
+
+    .upload { position: relative; display: grid; place-items: center; }
+
+    .upload_box {
+        width: 100%;
+        height: 36rem;
+        border: none;
+        border-radius: 0.5rem;
+        background: #e5e5e5;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        transition: transform 0.8s ease, background-color 0.15s ease;
+        transform-origin: center top;
+
+        &:hover { background-color: #ebebeb; }
+        &:active { transform: scale(0.99); }
+    }
+
+    .upload_box.shrink {
+        transform: scale(0.5);
+    }
+
+    .placeholder {
+        display: grid;
+        place-items: center;
+        gap: 0.8rem;
+        color: var(--gray400);
+        text-align: center;
+
+        p { font-size: 1.3rem; }
+    }
+
+    .preview {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        transition: transform 0.8s ease;
+    }
+
+    .file_input { display: none; }
+
+    .btn_area {
+        display: grid;
+        place-items: center;
+        margin: 2.4rem 0 1.2rem;
+        gap: 0.8rem;
+    }
+
+    .submit_btn {
+        width: min(25rem, 100%);
+        padding: 1.4rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        background: #fff;
+        color: #000;
+        border: none;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+
+        &:hover { background-color: #f0f0f0; }
+        &:active { transform: scale(0.99); }
+        &:disabled { opacity: 0.6; cursor: not-allowed; }
+    }
+
+    .retry_msg {
+        font-size: 1.3rem;
+        color: --var(--white);
+        text-align: center;
+    }
+
+    .success_msg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        gap: 0.8rem;
+        margin-top: 0.8rem;
+        animation: fadeUp 0.38s ease both;
+        animation-delay: 0.4s; 
+
+        .check_circle {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background: #57c22a;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 2.2rem;
+            font-weight: 900;
+            animation: popIn 0.42s ease both;
+            animation-delay: 0.4s;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 800;
+            margin-top: 0.2rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+            opacity: .95;
+            line-height: 1.6;
+        }
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeUpCenter {
+        from { opacity: 0; transform: translate(-50%, 0.4rem); }
+        to   { opacity: 1; transform: translate(-50%, 0); }
+    }
+}
