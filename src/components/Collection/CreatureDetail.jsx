@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import backgroundImage from '../../assets/img/starField.png';
 import badgeLv1 from '../../assets/img/badgeLv1.png';
 import badgeLv2 from '../../assets/img/badgeLv2.png';
 import badgeLv3 from '../../assets/img/badgeLv3.png';
-    
+import backImg from '../../assets/img/icon/chevron-left.svg';
+
 const CreatureDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [creatureDetail, setCreatureDetails] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -53,6 +55,9 @@ const CreatureDetail = () => {
     return (
       <div className='creature_detail contents'> 
         <div className='title_wrap'>
+          <div className="back" onClick={() => navigate(-1)}>
+            <img src={backImg} alt="back" />
+          </div>
             <h2 className='title'>생물도감</h2>
         </div>
  
