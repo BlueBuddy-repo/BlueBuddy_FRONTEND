@@ -4,6 +4,8 @@ import "../../assets/sass/section/collection/_postcardBook.scss"
 
 const PostcardBook = () => {
 
+    const token = '';
+
     const [postcards, setPostcards] = useState([]);
     const [error, setError] = useState(null);
   
