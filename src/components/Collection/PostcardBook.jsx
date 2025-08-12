@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const PostcardBook = () => {
 
+    const token = '';
+
     const [postcards, setPostcards] = useState([]);
     const [error, setError] = useState(null);
   

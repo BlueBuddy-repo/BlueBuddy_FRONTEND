@@ -13,10 +13,16 @@
 @use "section/map/map";
 
 //section
+@use "section/mypage/myinfo";
+@use "section/mypage/petinfo";
+@use "section/mypage/mypage";
+
+//section
 @use "section/collection/collectionTitle";
 @use "section/collection/creatureBook";
 @use "section/collection/creatureDetail";
-@use "section/collection/postcardBook"
+@use "section/collection/postcardBook";
 
-
-
+//section
+@use "section/zerowaste/zerowastemain";
+@use "section/zerowaste/zerowasteupload";
