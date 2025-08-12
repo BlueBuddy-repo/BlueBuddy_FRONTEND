@@ -1,0 +1,102 @@
+.creatureDetail_wrap {
+
+    position: relative;
+    width: 100%;
+
+  .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-bottom: 3.5rem;
+
+        .background {
+
+            img {
+                margin-top: -2rem;
+                width: 100%;
+                height: auto;
+                display: block;
+                z-index: 3;
+                position: relative;
+            }
+        }
+
+        .creature {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            z-index: 2;
+            width: 70%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .pet-name{
+            position: absolute;
+            bottom: 4rem;
+            left: 50%;
+            transform: translate(-50%);
+            font-size: 3.2rem;
+            z-index: 4;
+            color: white;
+        }
+    }
+
+    .description-wrapper {
+        color: white;
+        font-size: 1.2rem;
+        margin-left: 4.5rem;
+        margin-right: 4.4rem;
+        padding-bottom: 5.4rem;
+
+        .upper-box {
+            display: flex;
+            align-items: flex-start;
+
+            .name-kr {
+                font-size: 2.4rem;
+                white-space: nowrap;
+            }
+
+            .name-en-wrapper {
+                display: flex;
+                flex-direction: column;
+                margin-left: 0.5rem;
+                font-size: 1.2rem;
+                line-height: 1;
+                margin-top: 0.7rem;
+
+                .name-en {
+                    margin: 0;
+                }           
+
+                .scientific-name {
+                    transform: skewX(-15deg);
+                    line-height: 1;
+                    font-weight: 250;
+                }
+            }
+
+            .level img {
+                position: absolute;
+                right: 2.9rem;
+                width: 4.5rem; 
+                height: 4.7rem;
+                margin-top: -1.2rem;   
+            }
+        }
+
+        .description {
+            font-size: 1.2rem;
+            margin-top: 3rem;
+            white-space: pre-line; 
+            line-height: 1.2;
+            font-weight: 300;
+        }
+    }
+}
