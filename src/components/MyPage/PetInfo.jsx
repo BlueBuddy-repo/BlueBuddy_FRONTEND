@@ -1,6 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../assets/sass/section/mypage/_petinfo.scss";
 
 import backChevron from "../../assets/img/icon/chevron-left.svg";
 import chevronLeft from "../../assets/img/icon/chevron-left.svg";

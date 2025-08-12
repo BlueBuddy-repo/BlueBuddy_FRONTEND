@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../assets/sass/section/mypage/_mypage.scss";
 
 import lockIcon from "../../assets/img/icon/lock.svg";
 import petIcon from "../../assets/img/icon/pet.svg";

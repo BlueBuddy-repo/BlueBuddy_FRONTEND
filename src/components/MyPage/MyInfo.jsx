@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../assets/sass/section/mypage/_myinfo.scss";
 
 import backChevron from "../../assets/img/icon/chevron-left.svg"; 
 
