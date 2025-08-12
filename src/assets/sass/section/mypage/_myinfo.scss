@@ -47,8 +47,8 @@
             font-weight: 600;
             border: none;
             border-radius: 0.8rem;
-            background: #fff;
-            color: #000;
+            background: var(--white);
+            color: var(--darkblack);
 
             &:focus {
             outline: none;
@@ -57,7 +57,7 @@
         }
 
         .error {
-        color: #ff5555;
+        color: var(--red100);
         font-size: 1.3rem;
         margin-top: -0.8rem;
         }
@@ -68,15 +68,15 @@
         width: 20rem;
         font-size: 1.6rem;
         font-weight: 700;
-        background: #fff;
-        color: #000;
+        background: var(--white);
+        color: var(--darkblack);
         border: none;
         border-radius: 0.8rem;
         cursor: pointer;
         transition: background-color 0.15s ease;
 
             &:hover {
-                background-color: #f0f0f0;
+                background-color: var(--white);
             }
             &:active {
                 transform: scale(0.99);

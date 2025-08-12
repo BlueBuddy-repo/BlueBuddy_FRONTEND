@@ -24,13 +24,13 @@
         justify-content: space-between;
         text-decoration: none;
         color: inherit;
-        background: #1f1f1f;
+        background: var(--gray900);
         border-radius: 1.2rem;
         padding: 1.4rem 1.6rem;
         transition: transform 0.05s ease, background-color 0.15s ease;
 
         &:hover {
-            background: #262626;
+            background: var(--black);
         }
         &:active {
             transform: scale(0.99);
