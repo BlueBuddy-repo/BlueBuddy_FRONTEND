@@ -12,6 +12,13 @@
 //section
 @use "section/map/map";
 @use "section/home/landing";
+
+//section
+@use "section/mypage/myinfo";
+@use "section/mypage/petinfo";
+@use "section/mypage/mypage";
+
+//section
 @use "section/collection/collectionTitle";
 @use "section/collection/creatureBook";
 @use "section/collection/creatureDetail";

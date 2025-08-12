@@ -1,0 +1,115 @@
+.petedit_wrap {
+    padding: 1.6rem 2rem;
+
+    .petedit_header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2.4rem;
+
+        .back-btn {
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        cursor: pointer;
+        padding: 0;
+        }
+
+        .title {
+        font-size: 1.6rem;
+        font-weight: 500;
+        }
+    }
+
+    .pet_visual {
+        position: relative;
+        display: grid;
+        place-items: center;
+        margin: 2rem 0 3rem;
+    
+        .image_box {
+        width: 100%;
+        max-width: 32rem;
+        aspect-ratio: 1 / 1; 
+        display: grid;
+        place-items: center;
+        }
+    
+        .pet_img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        }
+    
+        .nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.8rem;
+        line-height: 0;
+        img { width: 4rem; height: 4rem; display: block; }
+    
+        &.left  { left: -1rem; }
+        &.right { right: -1rem; }
+    
+        &:hover { opacity: 0.9; }
+        &:active { transform: translateY(-50%) scale(0.98); }
+        }
+    }
+    
+    .pet_form {
+        display: grid;
+        justify-items: center;
+        gap: 1rem;
+    
+        .name_input {
+        width: min(20rem, 70%);
+        font-size: 1.6rem;
+        font-weight: 600;
+        background: var(--white);
+        color: var(--darkblack);
+        border: none;
+        border-radius: 1.2rem;
+        padding: 1.2rem 1.6rem;
+        text-align: center;
+    
+        &:focus {
+            outline: none;
+        }
+        }
+    
+        .hint {
+        font-size: 1.2rem;
+        opacity: 0.8;
+        margin-top: 0.4rem;
+        }
+    
+        .form_error {
+        color:var(--red100);
+        font-size: 1.3rem;
+        margin-top: 0.2rem;
+        }
+    
+        .submit_btn {
+        margin-top: 1.6rem;
+        width: min(25rem, 80%);
+        padding: 1.4rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        background: var(--white);
+        color: var(--darkblack);
+        border: none;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+    
+        &:hover { background-color: var(--white); }
+        &:active { transform: scale(0.99); }
+        }
+    }
+}
+
