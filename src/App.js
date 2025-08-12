@@ -7,6 +7,8 @@ import Map from './components/Map/Map';
 import MyPage from './components/MyPage/MyPage';
 import MyInfo from './components/MyPage/MyInfo';
 import PetInfo from './components/MyPage/PetInfo';
+import CollectionPage from './components/Collection/CollectionPage'
+import CreatureDetail from './components/Collection/CreatureDetail'
 
 const App = () => {
     return (
@@ -18,6 +20,10 @@ const App = () => {
                 <Route path="/mypage" element={<MyPage />}></Route>
                 <Route path="/myinfo" element={<MyInfo />}></Route>
                 <Route path="/petinfo" element={<PetInfo />}></Route>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/map" element={<Map />}></Route>
+                <Route path="/book" element={<CollectionPage />} />
+                <Route path="/book/creature/:id" element={<CreatureDetail />} /> 
             </Routes>
             <Footer />
         </BrowserRouter>
