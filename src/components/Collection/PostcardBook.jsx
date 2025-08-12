@@ -3,7 +3,7 @@ import axios from 'axios';
 import "../../assets/sass/section/collection/_postcardBook.scss"
 
 const PostcardBook = () => {
-
+    const [token, setToken] = useState();
     const [postcards, setPostcards] = useState([]);
     const [error, setError] = useState(null);
   
