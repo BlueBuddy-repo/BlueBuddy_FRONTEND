@@ -1,0 +1,76 @@
+.zerow_wrap {
+    padding: 1.6rem 2rem;
+
+    .title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.6rem;
+    }
+    
+    .poster .figure {
+        margin: 0;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+    
+        img {
+        width: 100%;
+        max-width: 32rem;
+        }
+    }
+    
+    .desc {
+        margin-top: 1.6rem;
+    
+        p {
+        line-height: 1.6;
+        font-size: 1.4rem;
+        font-weight: 500;
+        opacity: 0.95;
+        white-space: pre-line;
+        }
+    }
+    
+    .guide {
+        margin-top: 2rem;
+    
+        .subtitle {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        }
+    
+        .list {
+        margin: 0;
+        padding-left: 2rem; 
+        li {
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.6;
+            margin: 0.4rem 0;
+        }
+        }
+    }
+    
+    .cta_area {
+        display: grid;
+        place-items: center;
+        margin: 2.4rem 0 1.2rem;
+    }
+    
+    .cta_btn {
+        width: min(25rem, 100%);
+        padding: 1.4rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        background: #fff;   
+        color: #000;
+        border: none;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+    
+        &:hover { background-color: #f0f0f0; }
+        &:active { transform: scale(0.99); }
+    }
+}
