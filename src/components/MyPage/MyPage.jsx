@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 import lockIcon from "../../assets/img/icon/lock.svg";
@@ -22,11 +23,33 @@ const MenuItem = ({ to, icon, label }) => (
 );
 
 export default function MyPage() {
+    const token = localStorage.getItem("accessToken");
+    const API = process.env.REACT_APP_API_URL
+
+    const [name, setName] = useState("");
+    
+
+    useEffect(() => {
+        axios.get(`${API}/user/my`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+        .then(res => {
+            if (res.data.success) {
+                setName(res.data.data);
+            } 
+        })
+        .catch(err => {
+            console.error(err);
+            alert("사용자 정보를 불러오지 못했습니다.");
+        });
+    }, []);
+
     return (
         <div className="mypage_wrap contents">
             <h1 className="title">마이페이지</h1>
-            <div className="username">bluebuddy님</div>
-
+            <div className="username">{name}님</div>
             <nav className="menu">
                 <MenuItem to="/myinfo" icon={lockIcon} label="나의 정보" />
                 <MenuItem to="/petinfo" icon={petIcon} label="펫 정보" />
