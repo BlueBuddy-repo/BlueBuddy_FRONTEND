@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const PostcardBook = () => {
-
-    const token = '';
-
+    const [token, setToken] = useState();
     const [postcards, setPostcards] = useState([]);
     const [error, setError] = useState(null);
   
