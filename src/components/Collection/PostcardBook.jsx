@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "../../assets/sass/section/collection/_postcardBook.scss"
 
 const PostcardBook = () => {
 
@@ -38,6 +37,19 @@ const PostcardBook = () => {
             {postcards.map((postcard) => (
             <div key={postcard.userPostcardId} className='postcard'>
                 <img src={postcard.imagePath} alt={`postcard-${postcard.userPostcardId}`} />
+                {/* <div className='text'>{postcard.postcardText}</div>             */}
+                <div className='text'>
+                {postcard.postcardText
+                    .replace(/\\n/g, '\n')  
+                    .split('\n')     
+                    .map((line, index) => (
+                    <span key={index}>
+                        {line}
+                        <br />
+                    </span>
+                    ))
+                }
+</div>
             </div>
             ))}
         </div>

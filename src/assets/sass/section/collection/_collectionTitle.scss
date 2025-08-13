@@ -1,5 +1,10 @@
 .title_wrap{
 
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    position: relative;
+
     .title {
         text-align: center;
         font-weight: bold;
@@ -9,5 +14,17 @@
         text-decoration-color: white;
         text-decoration-thickness: 0.17rem;
         text-underline-offset: 0.3rem;
+    }
+
+    .back {
+        position: absolute;
+        cursor: pointer;
+        left: 1.6rem;
+
+        img {
+            width: 2.7rem;
+            height: auto;
+            display: block;
+        }
     }
 }
