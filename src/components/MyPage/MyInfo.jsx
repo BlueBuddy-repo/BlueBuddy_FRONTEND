@@ -17,7 +17,6 @@ export default function MyInfo() {
     const token = localStorage.getItem("accessToken");
     const API = process.env.REACT_APP_API_URL
 
-
     useEffect(() => {
         axios.get(`${API}/user/my`, {
             headers: {
@@ -37,60 +36,54 @@ export default function MyInfo() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage("");  
-    
+        setMessage("");
+
+        // 유효성 검사
         if (!prevPw) {
             setMessage("이전 비밀번호를 입력해주세요.");
             setMessageType("error");
             return;
         }
-        if (!newPw || newPw.length < 8) {
+        if (newPw && newPw.length < 8) {
             setMessage("새 비밀번호는 8자 이상이어야 해요.");
             setMessageType("error");
             return;
         }
-        if (newPw !== newPw2) {
+        if (newPw && newPw !== newPw2) {
             setMessage("새 비밀번호가 일치하지 않습니다.");
             setMessageType("error");
             return;
         }
-    
+
+        const body = {
+            name: name,
+            password: prevPw,
+            newPassword: newPw ? newPw : null,
+        };
+
         try {
-            const res = await axios.put(`${API}/user/update`, {
-                name: name,
-                password: prevPw,
-                newPassword: newPw
-            }, {
+            const res = await axios.put(`${API}/user/update`, body, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
             });
-    
+
             if (res.data.success) {
                 setMessage("정보 변경에 성공했어요.");
                 setMessageType("success");
-            } 
-        } catch (err) {
-            console.error(err); 
-    
-            if (err.response?.status === 401) {
-                setMessage(err.response.data.message);
-                setMessageType("error");
-            } else if (err.response?.status === 400) {
-                setMessage(err.response.data.message);
-                setMessageType("error");
-            } else if (err.response?.status === 404) {
-                setMessage(err.response.data.message);
-                setMessageType("error");
-            } else if (err.response?.status === 500) {
-                setMessage(err.response.data.message);
-                setMessageType("error");
-            } else {
-                setMessage("서버 오류. 잠시후에 다시 시도해주세요.");
-                setMessageType("error");
             }
+        } catch (err) {
+            console.error(err);
+
+            if (err.response?.status === 400 || err.response?.status === 401 || err.response?.status === 404 || err.response?.status === 500) {
+                setMessage(err.response.data.message || "서버 오류가 발생했어요.");
+            } else {
+                setMessage("서버 오류. 잠시 후 다시 시도해주세요.");
+            }
+            setMessageType("error");
+        }
     };
-}
+
 
     return (
         <main className="myinfo_wrap contents">
