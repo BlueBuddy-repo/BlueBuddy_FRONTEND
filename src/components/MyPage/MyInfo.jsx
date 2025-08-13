@@ -1,35 +1,96 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import backChevron from "../../assets/img/icon/chevron-left.svg"; 
 
 export default function MyInfo() {
     const navigate = useNavigate();
 
-    const [name, setName] = useState("전민선");
+    const [name, setName] = useState("");
     const [prevPw, setPrevPw] = useState("");
     const [newPw, setNewPw] = useState("");
     const [newPw2, setNewPw2] = useState("");
-    const [error, setError] = useState("");
+    const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState(""); // success | error
 
-    const handleSubmit = (e) => {
+    const token = localStorage.getItem("accessToken");
+    const API = process.env.REACT_APP_API_URL
+
+
+    useEffect(() => {
+        axios.get(`${API}/user/my`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+        .then(res => {
+            if (res.data.success) {
+                setName(res.data.data);
+            } 
+        })
+        .catch(err => {
+            console.error(err);
+            alert("사용자 정보를 불러오지 못했습니다.");
+        });
+    }, []);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setError("");
-
+        setMessage("");  
+    
         if (!prevPw) {
-            setError("이전 비밀번호를 입력해주세요.");
+            setMessage("이전 비밀번호를 입력해주세요.");
+            setMessageType("error");
             return;
         }
         if (!newPw || newPw.length < 8) {
-            setError("새 비밀번호는 8자 이상이어야 해요.");
+            setMessage("새 비밀번호는 8자 이상이어야 해요.");
+            setMessageType("error");
             return;
         }
         if (newPw !== newPw2) {
-            setError("새 비밀번호가 일치하지 않습니다.");
+            setMessage("새 비밀번호가 일치하지 않습니다.");
+            setMessageType("error");
             return;
         }
-        // await fetch("/update/myInfo", { ... })
+    
+        try {
+            const res = await axios.put(`${API}/user/update`, {
+                name: name,
+                password: prevPw,
+                newPassword: newPw
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
+    
+            if (res.data.success) {
+                setMessage("정보 변경에 성공했어요.");
+                setMessageType("success");
+            } 
+        } catch (err) {
+            console.error(err); 
+    
+            if (err.response?.status === 401) {
+                setMessage(err.response.data.message);
+                setMessageType("error");
+            } else if (err.response?.status === 400) {
+                setMessage(err.response.data.message);
+                setMessageType("error");
+            } else if (err.response?.status === 404) {
+                setMessage(err.response.data.message);
+                setMessageType("error");
+            } else if (err.response?.status === 500) {
+                setMessage(err.response.data.message);
+                setMessageType("error");
+            } else {
+                setMessage("서버 오류. 잠시후에 다시 시도해주세요.");
+                setMessageType("error");
+            }
     };
+}
 
     return (
         <main className="myinfo_wrap contents">
@@ -89,7 +150,11 @@ export default function MyInfo() {
                         />
                 </div>
 
-                {error && <p className="error" role="alert">{error}</p>}
+                {message && (
+                    <p className={`message ${messageType}`} role="alert">
+                        {message}
+                    </p>
+                )}
 
                 <button type="submit" className="submit-btn">
                 수정하기
