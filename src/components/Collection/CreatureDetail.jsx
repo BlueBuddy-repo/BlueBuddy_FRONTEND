@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import backgroundImage from '../../assets/img/starField.png';
-import badgeLv1 from '../../assets/img/badgeLv1.png';
-import badgeLv2 from '../../assets/img/badgeLv2.png';
-import badgeLv3 from '../../assets/img/badgeLv3.png';
+import backgroundImage from '../../assets/img/collection/starField.png';
+import badgeLv1 from '../../assets/img/collection/badgeLv1.png';
+import badgeLv2 from '../../assets/img/collection/badgeLv2.png';
+import badgeLv3 from '../../assets/img/collection/badgeLv3.png';
 import backImg from '../../assets/img/icon/chevron-left.svg';
 
 const CreatureDetail = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import cardImage from '../../assets/img/card.png';
+import cardImage from '../../assets/img/collection/card.png';
 
 const CreatureBook  = () => {
 
