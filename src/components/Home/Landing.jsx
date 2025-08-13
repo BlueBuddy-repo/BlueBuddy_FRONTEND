@@ -29,7 +29,7 @@ const Landing = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnime(false)
-    }, 3000)
+    }, 2000)
     return () => clearTimeout(timer)
   }, [navigate])
 
