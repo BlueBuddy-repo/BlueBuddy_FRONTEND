@@ -1,6 +1,15 @@
 .petedit_wrap {
     padding: 1.6rem 2rem;
 
+    .form_error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        text-align: center;
+      }
+
     .petedit_header {
         display: flex;
         align-items: center;
