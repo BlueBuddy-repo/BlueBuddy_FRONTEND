@@ -56,10 +56,16 @@
         }
         }
 
-        .error {
-        color: var(--red100);
-        font-size: 1.3rem;
-        margin-top: -0.8rem;
+        .message.success {
+            color: green;
+            font-size: 1.3rem;
+            margin-top: -0.8rem;
+        }
+        
+        .message.error {
+            color: var(--red100);
+            font-size: 1.3rem;
+            margin-top: -0.8rem;
         }
 
         .submit-btn {
