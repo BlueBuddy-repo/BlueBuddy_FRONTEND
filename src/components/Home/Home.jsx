@@ -7,14 +7,15 @@ import heart from '../../assets/img/home/heart.png';
 
 const Home = () => {
 
+  const token = localStorage.getItem('token');
   const [petName, setPetName] = useState('');
   const [petImage, setPetImage] = useState('');
   const [waveCount, setWaveCount] = useState(0);
 
   useEffect(() => {
+    
     const fetchData = async () => {
        try {
-        const token = localStorage.getItem('token');
         if (!token) {
           console.error('토큰이 없습니다. 로그인 후 이용하세요.');
           return;
@@ -42,8 +43,36 @@ const Home = () => {
     fetchData();
   }, [token]);
 
-  
+  const handleHeartClick = async () => {
+    const today = new Date().toISOString().slice(0, 10);
+    const lastChecked = localStorage.getItem('lastAttendanceDate')
 
+    if (lastChecked === today) {
+      alert('오늘은 이미 출석체크를 완료했습니다.');
+      return;
+    }
+
+    try {
+      if (!token) return console.error('토큰이 없습니다.');
+
+      await axios.put(`${process.env.REACT_APP_API_URL}/wave/attendance`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      const newWave = waveCount + 5;
+      setWaveCount(newWave);
+      localStorage.setItem('lastAttendanceDate', today);
+
+      if (newWave % 50 === 0) {
+        alert(' 새로운 엽서를 획득했어요!');
+      }
+
+    } catch (err) {
+      console.error('API 호출 실패:', err);
+      }
+};
+
+  
   return (
     <div className='home_wrap contents'>
       <div className="wave_box">
@@ -57,7 +86,13 @@ const Home = () => {
 
       <div className='creature'>        
         {petImage && <img className="img" src={petImage} alt="creature" />}
-        <img className="heart" src={heart} alt="heart" />
+        <img
+          className="heart"
+          src={heart}
+          alt="heart"
+          onClick={handleHeartClick}
+          style={{ cursor: 'pointer' }}
+        />     
       </div>
       <div className='balloon'>
         <img className="img" src={balloon} alt="balloon" />
