@@ -12,6 +12,8 @@ import CreatureDetail from './components/Collection/CreatureDetail'
 import Landing from './components/Home/Landing';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
+import ZeroWasteMain from './components/ZeroWaste/ZeroWasteMain';
+import ZeroWasteUpload from './components/ZeroWaste/ZeroWasteUpload';
 
 const App = () => {
     return (
@@ -30,6 +32,8 @@ const App = () => {
                 <Route path="/map" element={<Map />}></Route>
                 <Route path="/book" element={<CollectionPage />} />
                 <Route path="/book/creature/:id" element={<CreatureDetail />} /> 
+                <Route path="/zerowaste" element={<ZeroWasteMain />}></Route>
+                <Route path="/zerowaste/upload" element={<ZeroWasteUpload />}></Route>
             </Routes>
             <Footer />
         </BrowserRouter>
