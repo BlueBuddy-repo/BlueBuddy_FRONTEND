@@ -14,6 +14,10 @@
 @use "section/home/landing";
 
 //section
+@use "section/auth/login";
+@use "section/auth/signup";
+
+//section
 @use "section/mypage/myinfo";
 @use "section/mypage/petinfo";
 @use "section/mypage/mypage";
