@@ -1,0 +1,102 @@
+.landing_wrap {
+    z-index: 1000;
+    background: url('../../../img/main/background.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+
+    .logo_wrap {
+        position: relative;
+        height: 30rem;
+        transition: top 1s ease;
+        top: 20rem;
+
+        .logo {
+            position: relative;
+            width: 17rem;
+            display: flex;
+            margin: 0 auto;
+            z-index: 10;
+        }
+
+        .bubble1,
+        .bubble2,
+        .bubble3,
+        .bubble4 {
+            border: .05rem solid var(--lightblue100);
+            border-radius: 50%;
+            right: 10rem;
+            top: 2rem;
+            display: flex;
+            position: absolute;
+            z-index: 0;
+        }
+
+        .bubble1 {
+            width: 6rem;
+            height: 6rem;
+        }
+
+        .bubble2 {
+            width: 2.5rem;
+            height: 2.5rem;
+            top: -2rem;
+            right: 9rem;
+        }
+
+        .bubble3 {
+            width: .7rem;
+            height: .7rem;
+            top: -4rem;
+
+        }
+
+        .bubble4 {
+            width: .5rem;
+            height: .5rem;
+            top: -2rem;
+            right: 13rem;
+        }
+    }
+
+    .text {
+        text-align: center;
+        font-size: 1.6rem;
+        margin: 10px 0;
+        transition: opacity 1s ease;
+        opacity: 1;
+    }
+
+    .btns {
+        position: relative;
+        transition: top 1s ease;
+        display: flex;
+        gap: 2.4rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+
+        div {
+            width: 20rem;
+            height: 4.6rem;
+            background-color: var(--darkblack);
+            border: .1rem solid var(--gray600);
+            text-align: center;
+            line-height: 4.6rem;
+            letter-spacing: 0.16rem;
+            font-size: 1.6rem;
+            font-weight: 500;
+            border-radius: .5rem;
+
+            &:hover {
+                background-color: var(--lightblue100);
+                color: var(--darkblack);
+                cursor: pointer;
+            }
+
+        }
+
+
+    }
+}

@@ -1,0 +1,69 @@
+.login_wrap {
+    background: url('../../../img/main/background.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+
+    a {
+        text-decoration: underline;
+        margin-top: -2rem;
+        color: var(--gray400);
+    }
+
+   
+}
+
+.logo_wrap {
+    position: relative;
+    height: fit-content;
+    transition: top 1s ease;
+    top: 10rem;
+
+
+    .logo {
+        position: relative;
+        width: 17rem;
+        display: flex;
+        margin: 0 auto;
+        z-index: 10;
+    }
+
+    .bubble1,
+    .bubble2,
+    .bubble3,
+    .bubble4 {
+        border: .05rem solid var(--lightblue100);
+        border-radius: 50%;
+        right: 10rem;
+        top: 2rem;
+        display: flex;
+        position: absolute;
+        z-index: 0;
+    }
+
+    .bubble1 {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .bubble2 {
+        width: 2.5rem;
+        height: 2.5rem;
+        top: -2rem;
+        right: 9rem;
+    }
+
+    .bubble3 {
+        width: .7rem;
+        height: .7rem;
+        top: -4rem;
+
+    }
+
+    .bubble4 {
+        width: .5rem;
+        height: .5rem;
+        top: -2rem;
+        right: 13rem;
+    }
+}

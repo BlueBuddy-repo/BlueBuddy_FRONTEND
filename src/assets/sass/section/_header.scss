@@ -1,9 +1,14 @@
-.header_wrap{
+.header_wrap {
+    position: sticky;
+    top: 0;
     height: 7.5rem;
     display: flex;
     align-items: center;
-    img{
+    z-index: 100;
+    background-color: var(--darkblack);
+
+    img {
         width: 18.5rem;
-        margin-left: 2rem ;
+        margin-left: 2rem;
     }
 }
