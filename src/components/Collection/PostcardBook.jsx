@@ -4,6 +4,7 @@ import axios from 'axios';
 const PostcardBook = () => {
 
     const token = localStorage.getItem('token');
+    const API = process.env.REACT_APP_API_URL;
 
     const [postcards, setPostcards] = useState([]);
     const [error, setError] = useState(null);
@@ -15,7 +16,6 @@ const PostcardBook = () => {
         })
         .then(res => {
         if (res.data.success) {
-            console.log('API 데이터:', res.data.data); 
             setPostcards(res.data.data);
         } else {
             setError('엽서 데이터를 불러올 수 없습니다.');
@@ -34,7 +34,11 @@ const PostcardBook = () => {
         <div className='postcard-list'>
             {postcards.map((postcard) => (
             <div key={postcard.userPostcardId} className='postcard'>
-                <img src={postcard.imagePath} alt={`postcard-${postcard.userPostcardId}`} />
+                <img     
+                    src={`${API}/${postcard.imagePath}`} 
+                    alt={`postcard-${postcard.userPostcardId}`} 
+                />
+                
                 <div className='text'>
                 {postcard.postcardText
                     .replace(/\\n/g, '\n')  
