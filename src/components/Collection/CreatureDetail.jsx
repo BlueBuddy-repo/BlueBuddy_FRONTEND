@@ -8,6 +8,7 @@ import badgeLv3 from '../../assets/img/collection/badgeLv3.png';
 import backImg from '../../assets/img/icon/chevron-left.svg';
 
 const CreatureDetail = () => {
+    const API = process.env.REACT_APP_API_URL;
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -38,7 +39,6 @@ const CreatureDetail = () => {
         })
         .then(res => {
         if (res.data.success) {
-            console.log('API 데이터:', res.data.data); 
             setCreatureDetails(res.data.data);
         } else {
             setError('생물 정보 데이터를 불러올 수 없습니다.');
@@ -73,7 +73,7 @@ const CreatureDetail = () => {
 
               {!loading && (<>
               <div className="creature">
-                  <img src={creatureDetail.imageUrl} alt="creature" 
+                  <img src= {`${API}/${creatureDetail.imageUrl}`} alt="creature" 
                   className={loaded ? 'loaded' : ''}
                   onLoad={() => setLoaded(true)}
                   />
