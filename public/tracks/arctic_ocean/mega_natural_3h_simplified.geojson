@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "arctic_ocean-3h-simplified",
+        "points": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.488,
+            78.088
+          ],
+          [
+            9.488,
+            78.088
+          ]
+        ]
+      }
+    }
+  ]
+}
