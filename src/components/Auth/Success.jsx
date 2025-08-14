@@ -22,7 +22,7 @@ const Success = () => {
             <img src={sharkImg} alt="" className="shark" />
             <div className="info">
                 <p>나의 작은 &nbsp;<strong>바다친구</strong><div className="margin">&nbsp;</div></p>
-                <p><div className="margin">&nbsp;</div><strong>BLUE BUDDY</strong>&nbsp;에</p>
+                <p><p className="margin">&nbsp;</p><strong>BLUE BUDDY</strong>&nbsp;에</p>
                 <p>&nbsp; 오신 것을 환영합니다. </p>
             </div>
 

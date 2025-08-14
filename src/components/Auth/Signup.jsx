@@ -64,7 +64,7 @@ const Signup = () => {
     useEffect(() => {
         if (success) {
             const timer = setTimeout(() => {
-                navigate('/landing')
+                navigate('/')
             }, 2000)
             return () => clearTimeout(timer)
         }

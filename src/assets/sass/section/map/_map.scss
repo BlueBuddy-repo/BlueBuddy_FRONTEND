@@ -5,7 +5,7 @@
         z-index: 10;
         position: absolute;
         bottom: 1.8rem;
-        right: 1.8rem;
+        right: 1rem;
         background-color: var(--black);
         width: 5.5rem;
         height: 5.5rem;
@@ -43,6 +43,11 @@
             display: flex;
             align-items: center;
             justify-content: start;
+            cursor: pointer;
         }
+        .active{
+        color: var(--black);
     }
+    }
+    
 }

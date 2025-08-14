@@ -1,0 +1,33 @@
+.temp_info {
+    z-index: 100;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    background-color: #fff;
+    font-size: 2.2rem;
+    border-radius: 50%;
+    top: 1rem;
+    left: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 120%;
+    border: .1rem var(--darkblack) solid;
+    color: var(--darkblack);
+
+    .info_wrap {
+        display: flex;
+        position: absolute;
+        width: 32rem;
+        font-size: 1rem;
+        line-height: normal;
+        background-color: var(--lightblue100);
+        padding: .5rem;
+        top: 0;
+        left: 4rem;
+        text-align: start;
+    }
+}
+.species_point{
+    color: var(--darkblack);
+}
