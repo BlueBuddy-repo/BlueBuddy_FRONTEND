@@ -6,7 +6,7 @@ import cardImage from '../../assets/img/collection/card.png';
 const CreatureBook  = () => {
 
     const totalCount = 12
-    const token = '';
+    const token = localStorage.getItem('token');
 
     const navigate = useNavigate();
     const [creatures, setCreatures] = useState([]);
@@ -15,10 +15,8 @@ const CreatureBook  = () => {
 
     useEffect(() => {
 
-        axios.get('/user-creatures/my', {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
+        axios.get(`${process.env.REACT_APP_API_URL}/user-creatures/my`, {
+        headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => {
         if (res.data.success) {

@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const PostcardBook = () => {
-    const [token, setToken] = useState();
+
+    const token = localStorage.getItem('token');
+
     const [postcards, setPostcards] = useState([]);
     const [error, setError] = useState(null);
   
 
     useEffect(() => {
-        axios.get('user-postcards/me', {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
+        axios.get(`${process.env.REACT_APP_API_URL}/user-postcards/me`, {
+        headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => {
         if (res.data.success) {
@@ -35,7 +35,6 @@ const PostcardBook = () => {
             {postcards.map((postcard) => (
             <div key={postcard.userPostcardId} className='postcard'>
                 <img src={postcard.imagePath} alt={`postcard-${postcard.userPostcardId}`} />
-                {/* <div className='text'>{postcard.postcardText}</div>             */}
                 <div className='text'>
                 {postcard.postcardText
                     .replace(/\\n/g, '\n')  

@@ -16,7 +16,7 @@ const CreatureDetail = () => {
     const [error, setError] = useState(null);
     const [loaded, setLoaded] = useState(false);
 
-    const token = ''
+    const token = localStorage.getItem('token');
 
     const getBadgeImage = (level) => {
       switch(level) {
@@ -28,10 +28,13 @@ const CreatureDetail = () => {
     };
 
     useEffect(() => {
-        axios.get(`/user-creatures/${id}`, {
-        headers: {
-            Authorization: `Bearer ${token}`
+        if (!token) {
+        setError('토큰이 없습니다. 로그인 후 이용하세요.');
+        setLoading(false);
+        return;
         }
+        axios.get(`${process.env.REACT_APP_API_URL}/user-creatures/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => {
         if (res.data.success) {
