@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useJsApiLoader } from '@react-google-maps/api';
 import Header from './components/Section/Header'
 import Footer from './components/Section/Footer'
 import Home from './components/Home/Home'
@@ -16,21 +17,21 @@ import ZeroWasteMain from './components/ZeroWaste/ZeroWasteMain';
 import ZeroWasteUpload from './components/ZeroWaste/ZeroWasteUpload';
 
 const App = () => {
+   
     return (
         <BrowserRouter>
             <Header />
             <Routes>
                 <Route path="/home" element={<Home />}></Route>
-                <Route path="/landing" element={<Landing />}></Route>
+                <Route path="/" element={<Landing />}></Route>
                 <Route path="/signup" element={<Signup />}></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/map" element={<Map />}></Route>
                 <Route path="/mypage" element={<MyPage />}></Route>
                 <Route path="/myinfo" element={<MyInfo />}></Route>
                 <Route path="/petinfo" element={<PetInfo />}></Route>
-
                 <Route path="/book" element={<CollectionPage />} />
-                <Route path="/book/creature/:id" element={<CreatureDetail />} /> 
+                <Route path="/book/creature/:id" element={<CreatureDetail />} />
                 <Route path="/zerowaste" element={<ZeroWasteMain />}></Route>
                 <Route path="/zerowaste/upload" element={<ZeroWasteUpload />}></Route>
             </Routes>

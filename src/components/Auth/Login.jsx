@@ -28,10 +28,10 @@ const Login = () => {
         password
       })
 
-      const token = res.data.token
+      const token = res.data.data
       localStorage.setItem('token', token)
-
-      navigate('/')
+      
+      navigate('/home')
 
     } catch (err) {
       console.error(err)
