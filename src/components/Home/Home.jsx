@@ -11,11 +11,11 @@ const Home = () => {
   const [petName, setPetName] = useState('');
   const [petImage, setPetImage] = useState('');
   const [waveCount, setWaveCount] = useState(0);
-
+  const API = process.env.REACT_APP_API_URL;
   useEffect(() => {
-    
+
     const fetchData = async () => {
-       try {
+      try {
         if (!token) {
           console.error('토큰이 없습니다. 로그인 후 이용하세요.');
           return;
@@ -69,10 +69,10 @@ const Home = () => {
 
     } catch (err) {
       console.error('API 호출 실패:', err);
-      }
-};
+    }
+  };
 
-  
+
   return (
     <div className='home_wrap contents'>
       <div className="wave_box">
@@ -81,18 +81,25 @@ const Home = () => {
         <div className="wave_index">
           <img className="wave_icon" src={wave} alt="물결" />
           <span>{waveCount}</span>
-        </div>      
+        </div>
       </div>
 
-      <div className='creature'>        
-        {petImage && <img className="img" src={petImage} alt="creature" />}
+      <div className='creature'>
+        {petImage && (
+          <img
+            className="img"
+            src={`${API}/${petImage}`}
+            alt="creature"
+          />
+        )}
+
         <img
           className="heart"
           src={heart}
           alt="heart"
           onClick={handleHeartClick}
           style={{ cursor: 'pointer' }}
-        />     
+        />
       </div>
       <div className='balloon'>
         <img className="img" src={balloon} alt="balloon" />

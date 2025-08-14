@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "north_atlantic-3h-simplified",
+        "points": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -66.8501,
+            44.4141
+          ],
+          [
+            -66.8501,
+            44.4141
+          ]
+        ]
+      }
+    }
+  ]
+}

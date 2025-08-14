@@ -13,7 +13,7 @@ import MypageOn from '../../assets/img/icon/mypage_on.svg'
 const Footer = () => {
     const location = useLocation();
     const path = location.pathname;
-    const hidePaths = ['/landing', '/login', '/signup'];
+    const hidePaths = ['/', '/login', '/signup'];
 
     if (hidePaths.includes(path)) {
         return <div></div>;

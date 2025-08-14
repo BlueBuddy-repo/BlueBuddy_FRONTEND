@@ -4,7 +4,7 @@ import Logo from '../../assets/img/logo.svg';
 
 const Header = () => {
   const location = useLocation();
-  const hidePaths = ['/landing', '/login', '/signup'];
+  const hidePaths = ['/', '/login', '/signup'];
 
   if (hidePaths.includes(location.pathname)) {
     return <div></div>;
