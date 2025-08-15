@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import chevronDown from "../../assets/img/icon/chevron-down.svg";
 
-const token = localStorage.getItem("accessToken");
+const token = localStorage.getItem("token");
 const API = process.env.REACT_APP_API_URL
 
 
@@ -48,7 +48,7 @@ const ACTIONS = [
             const fd = new FormData();
             fd.append("file", file); 
 
-            const res = await axios.post(`${API}/api/zeroWaste`, fd, {
+            const res = await axios.post(`${API}/zeroWaste`, fd, {
                 headers: {
                 "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${token}`,

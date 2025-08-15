@@ -35,7 +35,7 @@ const Signup = () => {
 
         if (!code) { setAuthLoading(false); return alert('인증번호를 입력해 주세요 .') }
 
-        axios.post(`http://localhost:8080/auth/verifyCode`, {
+        axios.post(`${API}/auth/verifyCode`, {
             email: email,
             code: code
         })
@@ -75,7 +75,7 @@ const Signup = () => {
     }
 
     return (
-        <div className='signup_wrap'>
+        <div className='signup_wrap contents'>
             <div className="logo_wrap">
                 <img src={Logo} alt="logo" className="logo" />
                 <div className="bubble bubble1" />

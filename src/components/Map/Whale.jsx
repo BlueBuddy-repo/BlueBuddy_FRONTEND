@@ -65,7 +65,7 @@ export default function Whale() {
   const [heading, setHeading] = useState(0);
   const [trail, setTrail] = useState([]);
   const [playing, setPlaying] = useState(true);
-  const [speedKmh] = useState(2000);
+  const [speedKmh] = useState(20000);
 
   const iconRunner = useMemo(() => {
     if (!window.google?.maps) return { url: Maker };

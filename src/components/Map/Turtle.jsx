@@ -79,7 +79,7 @@ const Turtle = () => {
         localStorage.setItem('turtleIndex', next);
         return next;
       });
-    }, 30000); 
+    }, 3000); 
     return () => clearInterval(timer);
   }, [coords]);
 
