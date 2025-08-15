@@ -23,7 +23,7 @@ const MenuItem = ({ to, icon, label }) => (
 );
 
 export default function MyPage() {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("token");
     const API = process.env.REACT_APP_API_URL
 
     const [name, setName] = useState("");

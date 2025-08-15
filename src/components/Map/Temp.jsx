@@ -59,7 +59,6 @@ export default function Temp() {
     const [selected, setSelected] = useState(null)
     const [step, setStep] = useState(1)
     const containerStyle = { width: '100%', height: 'calc(100vh - 15rem)' }
-    const fallbackCenter = { lat: 20, lng: 0 }
     const API = process.env.REACT_APP_API_URL
 
 
@@ -82,10 +81,6 @@ export default function Temp() {
             .catch((err) => console.error('seatemp 로드 실패 :', err))
     }, [API])
 
-    const center = useMemo(
-        () => (points.length ? { lat: points[0].lat, lng: points[0].lng } : fallbackCenter),
-        [points]
-    )
 
     const heatmapData = useMemo(() => {
         if (!window.google || !points.length) return []
@@ -112,7 +107,7 @@ export default function Temp() {
         <>
             <GoogleMap
                 mapContainerStyle={containerStyle}
-                center={center}
+                center={{ lat: 20, lng: 0 }}
                 zoom={2}
                 options={{
                     mapTypeId: 'hybrid',
