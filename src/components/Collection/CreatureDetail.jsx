@@ -8,13 +8,14 @@ import badgeLv3 from '../../assets/img/collection/badgeLv3.png';
 import backImg from '../../assets/img/icon/chevron-left.svg';
 
 const CreatureDetail = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const API = process.env.REACT_APP_API_URL;
-  const [creatureDetail, setCreatureDetails] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [loaded, setLoaded] = useState(false);
+    const API = process.env.REACT_APP_API_URL;
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    const [creatureDetail, setCreatureDetails] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [loaded, setLoaded] = useState(false);
 
   const token = localStorage.getItem('token');
 
@@ -38,8 +39,7 @@ const CreatureDetail = () => {
     })
       .then(res => {
         if (res.data.success) {
-          console.log('API 데이터:', res.data.data);
-          setCreatureDetails(res.data.data);
+            setCreatureDetails(res.data.data);
         } else {
           setError('생물 정보 데이터를 불러올 수 없습니다.');
         }
@@ -71,16 +71,16 @@ const CreatureDetail = () => {
             <img src={backgroundImage} alt="background" />
           </div>
 
-          {!loading && (<>
-            <div className="creature">
-              <img src={`${API}/${creatureDetail.imageUrl}`} alt="creature" 
-                className={loaded ? 'loaded' : ''}
-                onLoad={() => setLoaded(true)}
-              />
-            </div>
-            <div className="pet-name">{creatureDetail.petName}</div>
-          </>)}
-        </div>
+              {!loading && (<>
+              <div className="creature">
+                  <img src= {`${API}/${creatureDetail.imageUrl}`} alt="creature" 
+                  className={loaded ? 'loaded' : ''}
+                  onLoad={() => setLoaded(true)}
+                  />
+              </div>
+                <div className="pet-name">{creatureDetail.petName}</div>
+              </>)}
+          </div>
 
         {!loading && (
           <div className="description-wrapper">

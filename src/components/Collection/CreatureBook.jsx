@@ -8,6 +8,7 @@ const CreatureBook = () => {
     const totalCount = 12
     const token = localStorage.getItem('token');
     const API = process.env.REACT_APP_API_URL;
+
     const navigate = useNavigate();
     const [creatures, setCreatures] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -56,6 +57,7 @@ const CreatureBook = () => {
             <img
                 src={creature ? `${API}/${creature.imageUrl}`: cardImage}
             alt={creature ? `creature-${creature.creatureId}` : 'default card'}
+
             />
         </div>
     ));

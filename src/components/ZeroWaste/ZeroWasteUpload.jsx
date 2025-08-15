@@ -1,5 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import axios from "axios";
 import chevronDown from "../../assets/img/icon/chevron-down.svg";
+
+const token = localStorage.getItem("accessToken");
+const API = process.env.REACT_APP_API_URL
+
 
 const ACTIONS = [
     "텀블러 사용하기",
@@ -7,9 +12,9 @@ const ACTIONS = [
     "대중교통 이용하기",
     "일회용품 대신 다회용품 사용하기",
     "쓰레기 분리배출 정확히 하기",
-];
+    ];
 
-export default function ZeroWasteUpload() {
+    export default function ZeroWasteUpload() {
     const fileRef = useRef(null);
     const [action, setAction] = useState(ACTIONS[0]);
     const [file, setFile] = useState(null);
@@ -23,21 +28,44 @@ export default function ZeroWasteUpload() {
         const f = e.target.files?.[0];
         if (!f) return;
         setFile(f);
-        const url = URL.createObjectURL(f);
-        setPreviewUrl(url);
+        setPreviewUrl(URL.createObjectURL(f));
         setResult(null);
     };
+
+    // 미리보기 URL 정리
+    useEffect(() => {
+        return () => {
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        };
+    }, [previewUrl]);
 
     const onSubmit = async (e) => {
         e.preventDefault();
         if (!file) return;
         setLoading(true);
+
         try {
-        // 실제 API 연동
-        await new Promise((r) => setTimeout(r, 700));
-        setResult(Math.random() > 0.5 ? "reusable" : "non-reusable");
-        } finally {
-        setLoading(false);
+            const fd = new FormData();
+            fd.append("file", file); 
+
+            const res = await axios.post(`${API}/api/zeroWaste`, fd, {
+                headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (res.data == null) {
+                throw new Error("서버에서 유효한 응답을 받지 못했습니다."); 
+            }
+            const isReusable = res.data;
+            console.log("인증 결과:", isReusable);
+            setResult(isReusable ? "reusable" : "non-reusable");
+        } catch (err) {
+            alert("서버 오류 발생. 잠시후 다시 시도해주세요.");
+            setResult("non-reusable");
+            } finally {
+            setLoading(false);
         }
     };
 
