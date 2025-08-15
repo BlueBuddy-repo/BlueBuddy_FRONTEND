@@ -1,7 +1,12 @@
 import React from 'react'
 import Polygon from '../../assets/img/map/Polygon.svg'
+import { useNavigate } from 'react-router-dom'
 
 const Modal = ({ setOpen }) => {
+    const navigate = useNavigate
+    const gotoZero = () => {
+        navigate('/zerowaste')
+    }
     return (
         <div className='modal_wrap'>
             <img src={Polygon} alt="" />
@@ -18,7 +23,7 @@ const Modal = ({ setOpen }) => {
                     </span>
 
                 </div>
-                <div className='btn'>제로웨이스트 인증하기</div>
+                <div className='btn' onClick={gotoZero()} >제로웨이스트 인증하기</div>
 
                 <div className="info">
                     자주출몰하는 동물

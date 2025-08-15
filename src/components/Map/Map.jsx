@@ -4,6 +4,7 @@ import Temp from './Temp';
 import Whale from './Whale';
 import Species from './Species';
 import Turtle from './Turtle';
+import Animal from './Animal';
 
 const Map = () => {
   const [onmap, setOnmap] = useState('temp');
@@ -54,7 +55,7 @@ const Map = () => {
 
       <div className="map">
         {onmap === 'temp' && <Temp />}
-        {onmap === 'pet' && <Turtle />}
+        {onmap === 'pet' && <Animal />}
         {onmap === 'spe' && <Species />}
       </div>
     </div>

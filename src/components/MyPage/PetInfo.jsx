@@ -14,14 +14,14 @@ export default function PetEdit() {
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
-    const [messageType, setMessageType] = useState(""); // "success" | "error"
+    const [messageType, setMessageType] = useState(""); 
 
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("token");
     const API = process.env.REACT_APP_API_URL;
 
     const currentPet = pets[index];
 
-    // 펫 리스트 가져오기
+
     useEffect(() => {
         axios
             .get(`${API}/user-creatures/getCreatureList`, {

@@ -12,9 +12,9 @@ export default function MyInfo() {
     const [newPw, setNewPw] = useState("");
     const [newPw2, setNewPw2] = useState("");
     const [message, setMessage] = useState("");
-    const [messageType, setMessageType] = useState(""); // success | error
+    const [messageType, setMessageType] = useState(""); 
 
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("token");
     const API = process.env.REACT_APP_API_URL
 
     useEffect(() => {

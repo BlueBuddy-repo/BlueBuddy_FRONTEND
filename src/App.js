@@ -15,6 +15,7 @@ import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
 import ZeroWasteMain from './components/ZeroWaste/ZeroWasteMain';
 import ZeroWasteUpload from './components/ZeroWaste/ZeroWasteUpload';
+import Newpet from './components/Map/Newpet';
 
 const App = () => {
    
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path="/signup" element={<Signup />}></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/map" element={<Map />}></Route>
+                <Route path="/newpet" element={<Newpet />}></Route>
                 <Route path="/mypage" element={<MyPage />}></Route>
                 <Route path="/myinfo" element={<MyInfo />}></Route>
                 <Route path="/petinfo" element={<PetInfo />}></Route>
