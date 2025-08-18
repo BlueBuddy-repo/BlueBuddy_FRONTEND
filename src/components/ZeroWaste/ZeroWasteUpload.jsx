@@ -20,7 +20,7 @@ const ACTIONS = [
     const [file, setFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState("");
     const [loading, setLoading] = useState(false);
-    const [result, setResult] = useState(null); // 'reusable' | 'non-reusable' | null
+    const [result, setResult] = useState(null); 
 
     const onPickImage = () => fileRef.current?.click();
 
@@ -32,7 +32,6 @@ const ACTIONS = [
         setResult(null);
     };
 
-    // 미리보기 URL 정리
     useEffect(() => {
         return () => {
         if (previewUrl) URL.revokeObjectURL(previewUrl);
@@ -54,13 +53,12 @@ const ACTIONS = [
                 Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(res.data)
+
             if (res.data == null) {
                 throw new Error("서버에서 유효한 응답을 받지 못했습니다."); 
             }
-            const isReusable = res.data;
-            console.log("인증 결과:", isReusable);
-            setResult(isReusable ? "reusable" : "non-reusable");
+            const isReusable = res.data?.data;
+            setResult(isReusable);
         } catch (err) {
             alert("서버 오류 발생. 잠시후 다시 시도해주세요.");
             setResult("non-reusable");
@@ -127,24 +125,26 @@ const ACTIONS = [
             </div>
 
             <div className="btn_area">
-            {result !== "reusable" && (
-                <button
-                type="submit"
-                className="submit_btn"
-                disabled={!file || loading}
-                >
-                {loading ? "분석 중…" : "인증하기"}
-                </button>
-            )}
-            {result === "non-reusable" && (
-                <p className="retry_msg">인증을 실패했습니다. <br />
-                텀블러가 잘 보이게 다시 업로드 해주세요.</p>
-            )}
-            </div>
+                {result !== true && (
+                    <button
+                    type="submit"
+                    className="submit_btn"
+                    disabled={!file || loading}
+                    >
+                    {loading ? "분석 중…" : "인증하기"}
+                    </button>
+                )}
+                {result === false && (
+                    <p className="retry_msg">
+                    인증을 실패했습니다. <br />
+                    텀블러가 잘 보이게 다시 업로드 해주세요.
+                    </p>
+                )}
+                </div>
 
-            {result === "reusable" && (
+                {result === true && (
                 <div
-                    className={`success_msg ${result === "reusable" ? "show" : ""}`}
+                    className={`success_msg show`}
                     role="status"
                     aria-live="polite"
                 >
@@ -152,7 +152,7 @@ const ACTIONS = [
                     <h2>인증 성공!</h2>
                     <p>해양 생물의 서식지가 정화되었어요!<br />지도에서 확인해보세요</p>
                 </div>
-            )}
+                )}
         </form>
         </main>
     );

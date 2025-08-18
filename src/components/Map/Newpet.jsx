@@ -1,52 +1,62 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import Whale from '../../assets/img/icon/whale.svg';
 import Spotlight from '../../assets/img/main/spotlight.png';
 
 const Newpet = () => {
-  const { spotId } = useParams(); 
+  const { spotId } = useParams();
   const API = process.env.REACT_APP_API_URL;
   const token = localStorage.getItem('token');
 
   const [petData, setPetData] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
     if (!spotId) return;
 
-    const fetchPetData = async () => {
-      try {
-        const res = await axios.post(
-          `${API}/open/${spotId}`,
-          {}, 
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+    axios
+      .post(
+        `${API}/open/${spotId}`,
+        {}, 
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
         console.log('오픈 성공:', res.data);
-        setPetData(res.data.data);
-      } catch (err) {
-        console.error('오픈 API 실패:', err);
-      }
-    };
+        setPetData(res.data);
+        setErrorMsg(null);
+      })
+      .catch((err) => {
+        if (err.response?.status === 409) {
+          console.warn('이미 오픈된 펫이에요.');
 
-    fetchPetData();
+        } else {
+          console.error('오픈 API 실패:', err);
+        }
+      });
   }, [spotId, API, token]);
-
-  console.log(petData);
 
   return (
     <div className="newpet_wrap contents">
-      {petData ? (
+      {petData && (Array.isArray(petData) ? petData.length > 0 : true) ? (
         <>
-          <img src={`${API}/${petData.imageUrl}`} alt="" className="animal" />
+          <img
+            src={`${API}/${Array.isArray(petData) ? petData[0].imageUrl : petData.imageUrl}`}
+            alt=""
+            className="animal"
+          />
           <img src={Spotlight} alt="" className="spot" />
-          <div className="name">{petData.name}</div>
+          <div className="name">
+            {Array.isArray(petData) ? petData[0].name : petData.name}
+          </div>
         </>
       ) : (
-        <div className="loading">불러오는 중…</div>
+        <div className="loading">
+          {errorMsg ? errorMsg : '펫 데이터를 불러오는 중…'}
+        </div>
       )}
 
       <Link to="/book">도감으로 이동</Link>
