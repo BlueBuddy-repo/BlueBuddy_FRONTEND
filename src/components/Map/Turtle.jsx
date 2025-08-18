@@ -24,7 +24,7 @@ function interpolatePath(points, stepsPerSegment = 30) {
 
 const Turtle = () => {
   const API_KEY = process.env.REACT_APP_TURTLE_API_KEY; 
-  const BASE_URL = `http://apis.data.go.kr/B553482/SeaTurtleRouteService/getSeaTurtleRoute`;
+  const BASE_URL = `https://apis.data.go.kr/B553482/SeaTurtleRouteService/getSeaTurtleRoute`;
 
   const [coords, setCoords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(
