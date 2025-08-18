@@ -79,7 +79,7 @@ export default function Temp() {
                 );
                 setMissionSpots(activeSpots);
                 setNotOpenedSpots(notOpened);
-                console.log(activeSpots); 
+                console.log(activeSpots);
             })
             .catch((err) => console.error('spotList 로드 실패:', err));
     }, [API, token]);
@@ -91,12 +91,16 @@ export default function Temp() {
             weight: LEVEL_WEIGHT[p.level] ?? 1,
         }));
     }, [points]);
-
+    const defaultCenter = { lat: 0, lng: -160 }
     return (
         <>
             <GoogleMap
                 mapContainerStyle={containerStyle}
-                center={{ lat: Number(missionSpots[0].latitude), lng: Number(missionSpots[0].longitude) }}
+                center={
+                    missionSpots.length > 0 && missionSpots[0].latitude && missionSpots[0].longitude
+                        ? { lat: Number(missionSpots[0].latitude), lng: Number(missionSpots[0].longitude) }
+                        : defaultCenter
+                }
                 zoom={2}
                 options={{
                     mapTypeId: 'hybrid',
@@ -149,7 +153,7 @@ export default function Temp() {
                         open={open}
                         spotId={missionSpots[0].spotId}
                         completedCount={missionSpots[0].missionCount}
-                        
+
                     />
                 )}
 
