@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { useJsApiLoader } from '@react-google-maps/api';
 import Temp from './Temp';
-import Whale from './Whale';
 import Species from './Species';
-import Turtle from './Turtle';
 import Animal from './Animal';
-
+  const MAP_LIBRARIES = ['visualization'];
+  
 const Map = () => {
   const [onmap, setOnmap] = useState('temp');
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const MAP_LIBRARIES = ['visualization'];
+
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -54,9 +53,12 @@ const Map = () => {
       )}
 
       <div className="map">
-        {onmap === 'temp' && <Temp />}
-        {onmap === 'pet' && <Animal />}
-        {onmap === 'spe' && <Species />}
+        <div className="map">
+          {onmap === 'temp' && <Temp isLoaded={isLoaded} />}
+          {onmap === 'pet' && <Animal isLoaded={isLoaded} />}
+          {onmap === 'spe' && <Species isLoaded={isLoaded} />}
+        </div>
+
       </div>
     </div>
   );

@@ -54,7 +54,7 @@ const ACTIONS = [
                 Authorization: `Bearer ${token}`,
                 },
             });
-
+            console.log(res.data)
             if (res.data == null) {
                 throw new Error("서버에서 유효한 응답을 받지 못했습니다."); 
             }

@@ -30,7 +30,8 @@ const HEATMAP_GRADIENT = [
     'rgba(255, 0, 0, 1.0)',
 ];
 
-export default function Temp() {
+export default function Temp({ isLoaded }) {
+   
     const [info, setInfo] = useState(false);
     const [points, setPoints] = useState([]);
     const [open, setOpen] = useState(false);
@@ -79,7 +80,7 @@ export default function Temp() {
                 );
                 setMissionSpots(activeSpots);
                 setNotOpenedSpots(notOpened);
-                console.log(activeSpots);
+
             })
             .catch((err) => console.error('spotList 로드 실패:', err));
     }, [API, token]);
@@ -92,6 +93,7 @@ export default function Temp() {
         }));
     }, [points]);
     const defaultCenter = { lat: 0, lng: -160 }
+
     return (
         <>
             <GoogleMap
@@ -127,6 +129,7 @@ export default function Temp() {
                 )}
 
                 <Markers
+                className= "dkdf"
                     spots={missionSpots}
                     iconUrl={Icon}
                     onSelect={(spot) => {

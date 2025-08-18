@@ -14,33 +14,41 @@ const Newpet = () => {
   useEffect(() => {
     if (!spotId) return;
 
-    axios
-      .post(`${API}/open/${spotId}`, 
-
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((res) => {
+    const fetchPetData = async () => {
+      try {
+        const res = await axios.post(
+          `${API}/open/${spotId}`,
+          {}, 
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         console.log('오픈 성공:', res.data);
-        setPetData(res.data);
-      })
-      .catch((err) => {
+        setPetData(res.data.data);
+      } catch (err) {
         console.error('오픈 API 실패:', err);
-      });
+      }
+    };
+
+    fetchPetData();
   }, [spotId, API, token]);
 
   console.log(petData);
 
   return (
     <div className="newpet_wrap contents">
-      <img src={`${API}/${petData.imageUrl}`}alt="" className="animal" />
-      <img src={Spotlight} alt="" className="spot" />
+      {petData ? (
+        <>
+          <img src={`${API}/${petData.imageUrl}`} alt="" className="animal" />
+          <img src={Spotlight} alt="" className="spot" />
+          <div className="name">{petData.name}</div>
+        </>
+      ) : (
+        <div className="loading">불러오는 중…</div>
+      )}
 
-      <div className="name">{petData?.name}</div>
-      
       <Link to="/book">도감으로 이동</Link>
     </div>
   );
