@@ -72,13 +72,14 @@ export default function Temp() {
                 },
             })
             .then((res) => {
-                const data = res?.data?.data ?? [];
+                const data = res?.data.data;
                 const activeSpots = data.filter((spot) => spot.isCompleted === false);
                 const notOpened = data.filter(
                     (spot) => spot.isCompleted === true && spot.isOpened === false
                 );
                 setMissionSpots(activeSpots);
                 setNotOpenedSpots(notOpened);
+                console.log(activeSpots); 
             })
             .catch((err) => console.error('spotList 로드 실패:', err));
     }, [API, token]);
@@ -95,7 +96,7 @@ export default function Temp() {
         <>
             <GoogleMap
                 mapContainerStyle={containerStyle}
-                center={{ lat: 20, lng: 0 }}
+                center={{ lat: Number(missionSpots[0].latitude), lng: Number(missionSpots[0].longitude) }}
                 zoom={2}
                 options={{
                     mapTypeId: 'hybrid',
@@ -148,6 +149,7 @@ export default function Temp() {
                         open={open}
                         spotId={missionSpots[0].spotId}
                         completedCount={missionSpots[0].missionCount}
+                        
                     />
                 )}
 

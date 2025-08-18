@@ -33,6 +33,7 @@ const Modal = ({ setOpen, spotId, completedCount, open }) => {
     }
   }, [open, spotId, API, token]);
 
+
   const gotoZero = () => {
     navigate('/zerowaste');
   };
